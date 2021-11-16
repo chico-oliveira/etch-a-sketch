@@ -1,0 +1,101 @@
+/* Custom reset.css file, based on destyle.css v2.0.2 | https://github.com/nicolas-cusan/destyle.css */
+
+/* Reset box-model and set borders */
+/* ============================================ */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* Document */
+/* ============================================ */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ * 3. Remove gray overlay on links for iOS.
+ */
+
+html {
+  line-height: 1.15; /*1*/
+  -webkit-text-size-adjust: 100%; /*2*/ 
+  -webkit-tap-highlight-color: transparent; /*3*/
+}
+
+/* Sections */
+/* ============================================ */
+
+/**
+ * Remove the margin in all browsers.
+ */
+
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+
+main {
+  display: block;
+}
+
+/* Headings */
+/* ============================================ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  margin: 0;
+}
+
+/* Text-level semantics */
+/* ============================================ */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+
+ a {
+  background-color: transparent;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Forms */
+/* ============================================ */
+
+/**
+ * Reset form fields to make them styleable
+ */
+
+ button,
+ input,
+ optgroup,
+ select,
+ textarea {
+   -webkit-appearance: none;  /*removes safari default input box styling */
+   appearance: none;
+   vertical-align: middle;
+   color: inherit;
+   font: inherit;
+   background: transparent;
+   padding: 0;
+   margin: 0;
+   outline: 0;
+   border-radius: 0;
+   text-align: inherit;
+ }
