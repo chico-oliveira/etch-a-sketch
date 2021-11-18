@@ -4,7 +4,6 @@ Imports
 #######
 */
 
-
 /* 
 #########
 Variables
@@ -65,10 +64,38 @@ header {
   margin-bottom: 20px;
 }
 
-.sketch {
+
+/** Main section
+*/
+
+main {
+  display: flex;
+  gap: 80px;
+}
+
+.grid-grid, .grid-flex {
   width: 500px;
   height: 500px;
   border-width: 2px;
+}
+
+.grid-grid {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-auto-columns: auto;
+}
+
+.grid-flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-grid .gridElement {
+  
+}
+
+.grid-flex .gridElement {
+  flex-shrink: 0;
 }
 
 /** Footer section
