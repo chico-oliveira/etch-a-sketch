@@ -2,62 +2,56 @@
 // VARIABLES //
 ///////////////
 
-const gridSquared = document.querySelector('.grid-grid');
-const gridFlex = document.querySelector('.grid-flex'); // Flex Only
+const root = document.documentElement;
+const gridSquared = document.querySelector('.grid');
+const sizeText = document.querySelector('.grid-length');
 const clearButton = document.getElementById("clear");
-const gridLength = 8; //2*2
-const gridSize = 500;
-const elementSize = ((gridSize-4)/gridLength); // Flex Only
+const gridSize = 550;
+let gridLength = 8;
 
 /////////////////
 // DOM METHODS //
 /////////////////
 
-clearButton.onclick = loadGrid;
+clearButton.onclick = clearGrid;
 
 ///////////////
 // FUNCTIONS //
 ///////////////
 
-// Update CSS variables
-let root = document.documentElement;
-root.style.setProperty("--grid-length", gridLength);
-root.style.setProperty("--grid-size", gridSize+"px");
-
+// Initialize first grid
+updateCSS();
 loadGrid();
 
 function loadGrid() {
     
+    // Removes previous grid
     while (gridSquared.firstChild) {
         gridSquared.removeChild(gridSquared.firstChild);
-        gridFlex.removeChild(gridFlex.firstChild);
     }
 
-    // Grid
+    // Creates new grid
     for (let i=0; i<(gridLength ** 2); i++){
         let gridDiv = document.createElement('div');
         gridDiv.classList.add('gridElement');
-        gridDiv.style.borderStyle = "solid";
-        gridDiv.style.borderWidth = "1px";
-        gridDiv.style.borderColor = "black";
         gridSquared.appendChild(gridDiv);
 
         gridDiv.addEventListener("mouseenter", color);
     }
 
-    // Flex
-    for (let i=0; i<(gridLength ** 2); i++){
-        let gridDiv = document.createElement('div');
-        gridDiv.classList.add('gridElement');
-        gridDiv.style.borderStyle = "solid";
-        gridDiv.style.borderWidth = "1px";
-        gridDiv.style.borderColor = "black";
-        gridDiv.style.width = `${elementSize}px`;
-        gridDiv.style.height = `${elementSize}px`;
-        gridFlex.appendChild(gridDiv);
+    // Updates length display
+    sizeText.textContent = `${gridLength} × ${gridLength}`;
+}
 
-        gridDiv.addEventListener("mouseenter", color);
-    }
+function clearGrid(){
+    gridLength = parseInt(prompt("Define the grid length: "));
+    updateCSS();
+    loadGrid();
+}
+
+function updateCSS(){
+    root.style.setProperty("--grid-length", gridLength);
+    root.style.setProperty("--grid-size", gridSize+"px");
 }
 
 function color(e){

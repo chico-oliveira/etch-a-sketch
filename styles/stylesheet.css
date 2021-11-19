@@ -86,29 +86,25 @@ header {
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 80px;
+  gap: 40px;
 }
 
-.grid-grid, .grid-flex {
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.grid {
+  display: grid;
   width: var(--grid-size);
   height: var(--grid-size);
   border-width: 2px;
-}
-
-.grid-grid {
-  display: grid;
   grid-template-columns: repeat(var(--grid-length), auto);
-}
-
-.grid-flex {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.grid-flex .gridElement {
-  flex-shrink: 0;
 }
 
 .colored {
