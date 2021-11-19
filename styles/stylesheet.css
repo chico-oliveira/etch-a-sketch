@@ -10,6 +10,10 @@ Variables
 #########
 */
 
+:root {
+  --grid-length: 2;
+  --grid-size: 500px;
+}
 
 /*
 ###########
@@ -74,24 +78,23 @@ main {
 }
 
 .grid-grid, .grid-flex {
-  width: 500px;
-  height: 500px;
+  width: var(--grid-size);
+  height: var(--grid-size);
   border-width: 2px;
 }
 
 .grid-grid {
   display: grid;
-  grid-auto-rows: auto;
-  grid-auto-columns: auto;
+  grid-template-columns: repeat(var(--grid-length), auto);
+}
+
+.grid-grid .gridElement {
+  
 }
 
 .grid-flex {
   display: flex;
   flex-wrap: wrap;
-}
-
-.grid-grid .gridElement {
-  
 }
 
 .grid-flex .gridElement {
