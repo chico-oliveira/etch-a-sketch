@@ -13,6 +13,7 @@ Variables
 :root {
   --grid-length: 2;
   --grid-size: 500px;
+  --selectedColor: black;
 }
 
 /*
@@ -54,6 +55,17 @@ p {
   font-size: 1rem;
 }
 
+button {
+  padding: 10px 30px;
+  border-width: 2px;
+  border-color: black;
+  height: 100%;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 /* 
 ################
 Main styles
@@ -74,6 +86,8 @@ header {
 
 main {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 80px;
 }
 
@@ -88,10 +102,6 @@ main {
   grid-template-columns: repeat(var(--grid-length), auto);
 }
 
-.grid-grid .gridElement {
-  
-}
-
 .grid-flex {
   display: flex;
   flex-wrap: wrap;
@@ -99,6 +109,10 @@ main {
 
 .grid-flex .gridElement {
   flex-shrink: 0;
+}
+
+.colored {
+  background-color: var(--selectedColor);
 }
 
 /** Footer section
