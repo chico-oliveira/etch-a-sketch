@@ -2,12 +2,19 @@
 // VARIABLES //
 ///////////////
 
+const DEFAULT_GRID_LENGTH = 8;
+const DEFAULT_COLOUR = "blue";
+const DEFAULT_BRIGHTNESS = 100;
+
 const root = document.documentElement;
 const gridSquared = document.querySelector('.grid');
 const sizeText = document.querySelector('.grid-length');
 const clearButton = document.getElementById("clear");
-const gridSize = 550;
-let gridLength = 8;
+
+let gridLength = DEFAULT_GRID_LENGTH;
+let selectedColour = DEFAULT_COLOUR;
+let currentColour = DEFAULT_COLOUR;
+let brightness = DEFAULT_BRIGHTNESS;
 
 /////////////////
 // DOM METHODS //
@@ -19,9 +26,11 @@ clearButton.onclick = clearGrid;
 // FUNCTIONS //
 ///////////////
 
-// Initialize first grid
-updateCSS();
-loadGrid();
+// Initialize first grid after DOM and CSS finishes loading
+window.onload = () => {
+    updateCSS();
+    loadGrid();
+}
 
 function loadGrid() {
     
@@ -36,7 +45,7 @@ function loadGrid() {
         gridDiv.classList.add('gridElement');
         gridSquared.appendChild(gridDiv);
 
-        gridDiv.addEventListener("mouseenter", color);
+        gridDiv.addEventListener("mouseenter", colour);
     }
 
     // Updates length display
@@ -51,9 +60,41 @@ function clearGrid(){
 
 function updateCSS(){
     root.style.setProperty("--grid-length", gridLength);
-    root.style.setProperty("--grid-size", gridSize+"px");
+    root.style.setProperty("--selected-colour", currentColour);
 }
 
-function color(e){
-    e.target.classList.add("colored");
+function colour(e){
+    randomColour(e);
+    e.target.style.backgroundColor = currentColour;
+}
+
+function randomColour(){
+    let r = Math.floor(Math.random()*255);
+    let g = Math.floor(Math.random()*255);
+    let b = Math.floor(Math.random()*255);
+
+    currentColour = `rgb(${r}, ${g}, ${b})`;
+    updateCSS();
+}
+
+function greyScale(e){
+    let bgColour = e.target.style.backgroundColor;
+    
+    // Checks if the grid element has already started a gradient
+    if (e.target.classList.length < 2){
+        e.target.classList.add("grey");
+        currentColour = "rgba(0, 0, 0, 0.1)";
+    }
+    // Mid-gradient, increment alpha
+    else if (bgColour.indexOf("rgba") !== -1) {
+        let alpha = Number(bgColour.slice(-4, -1));
+        if (alpha < 1){
+            alpha += 0.1;
+            currentColour = `rgba(0, 0, 0, ${alpha})`;
+        }
+    }
+    // If the gradient has finished, square stays black
+    else {
+        currentColour = "black";
+    }
 }

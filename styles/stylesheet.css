@@ -13,7 +13,7 @@ Variables
 :root {
   --grid-length: 2;
   --grid-size: 500px;
-  --selectedColor: black;
+  --selected-colour: black;
 }
 
 /*
@@ -92,7 +92,7 @@ main {
   gap: 40px;
 }
 
-.info {
+.settings {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,10 +105,6 @@ main {
   height: var(--grid-size);
   border-width: 2px;
   grid-template-columns: repeat(var(--grid-length), auto);
-}
-
-.colored {
-  background-color: var(--selectedColor);
 }
 
 /** Footer section
