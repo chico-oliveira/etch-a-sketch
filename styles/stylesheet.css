@@ -107,6 +107,11 @@ main {
   grid-template-columns: repeat(var(--grid-length), auto);
 }
 
+.selected {
+  background-color: black;
+  color: white;
+}
+
 /** Footer section
 */
 
