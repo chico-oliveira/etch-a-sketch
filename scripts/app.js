@@ -2,8 +2,8 @@
 // VARIABLES //
 ///////////////
 
-const DEFAULT_GRID_LENGTH = 8;
-const DEFAULT_COLOUR = "blue";
+const DEFAULT_GRID_LENGTH = 16;
+const DEFAULT_COLOUR = "darkseagreen";
 const DEFAULT_MODE = "standard";
 
 const root = document.documentElement;
@@ -77,8 +77,11 @@ function colour(e){
     else if(currentMode === "rainbow"){
         currentColour = randomColour();
     }
-    else {
+    else if(currentMode === "greyscale"){
         currentColour = greyScale(e.target);
+    }
+    else {
+        currentColour = "white";
     }
 
     // Paints div

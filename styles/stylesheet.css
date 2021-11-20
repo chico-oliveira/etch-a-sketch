@@ -95,8 +95,21 @@ main {
 .settings {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   gap: 40px;
+}
+
+.standard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+#colour-picker {
+  border-radius: 50%;
+  width: 160px;
+  height: 40px;
 }
 
 .grid {
