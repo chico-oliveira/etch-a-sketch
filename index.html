@@ -13,36 +13,38 @@
 </head>
 <body>
     <div class="content">
-        <header>
-            <h1>Etch-a-Sketch</h1>
-        </header>
-        <div class="center-sticky"></div>
-        <main>
-            <div class=grid></div>
-            <div class="settings">
-                <div class="size">
-                    <p class="grid-length"></p>
-                    <input type="range" min="1" max="40" value="16" class="slider" id="myRange">
+        <div class="display">
+            <header>
+                <h1>Etch-a-Sketch</h1>
+            </header>
+            <div class="center-sticky"></div>
+            <main>
+                <div class=grid></div>
+                <div class="settings">
+                    <div class="size">
+                        <p class="grid-length"></p>
+                        <input type="range" min="1" max="40" value="16" class="slider" id="myRange">
+                    </div>
+                    <button id="clear">Clear</button>
+                    <button class="mode">Eraser</button>
+                    <div class="standard">
+                        <input type="color" id="colour-picker" value="#8fbc8f">
+                        <button class="mode selected">Standard Mode</button>
+                    </div>
+                    <button class="mode">Rainbow Mode</button>
+                    <button class="mode">Greyscale Mode</button>
                 </div>
-                <button id="clear">Clear</button>
-                <button class="mode">Eraser</button>
-                <div class="standard">
-                    <input type="color" id="colour-picker" value="#8fbc8f">
-                    <button class="mode selected">Standard Mode</button>
-                </div>
-                <button class="mode">Rainbow Mode</button>
-                <button class="mode">Greyscale Mode</button>
-            </div>
-        </main>
-        <div class="center-sticky"></div>
-        <footer>
-            <p>Copyright © 2021</p>
-            <p>|</p>
-            <a href="https://github.com/chico-oliveira">
-                <img src="images/github.png" alt="Github logo">
-                <p>Francisco Oliveira</p>
-            </a>
-        </footer>
+            </main>
+            <div class="center-sticky"></div>
+            <footer>
+                <p>Copyright © 2021</p>
+                <p>|</p>
+                <a href="https://github.com/chico-oliveira">
+                    <img src="images/github.png" alt="Github logo">
+                    <p>Francisco Oliveira</p>
+                </a>
+            </footer>
+        </div>
     </div>
 </body>
 </html>
