@@ -78,6 +78,8 @@ Main styles
 header {
   padding: 10px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -91,6 +93,21 @@ main {
   justify-content: center;
   align-items: center;
   gap: 40px;
+}
+
+.grid {
+  display: grid;
+  background-color: var(--bg-grey);
+  width: var(--grid-size);
+  height: var(--grid-size);
+  border-width: 1px;
+  border-color: var(--grid-border);
+  grid-template-columns: repeat(var(--grid-length), auto);
+}
+
+.selected {
+  background-color: black;
+  color: white;
 }
 
 .settings {
@@ -123,19 +140,6 @@ main {
 #colour-picker::-moz-color-swatch {
   border: none;
   border-radius: 50px;
-}
-
-.grid {
-  display: grid;
-  width: var(--grid-size);
-  height: var(--grid-size);
-  border-width: 2px;
-  grid-template-columns: repeat(var(--grid-length), auto);
-}
-
-.selected {
-  background-color: black;
-  color: white;
 }
 
 .size {

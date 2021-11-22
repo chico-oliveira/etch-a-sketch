@@ -3,7 +3,6 @@
 ///////////////
 
 const DEFAULT_GRID_LENGTH = 16;
-const DEFAULT_COLOUR = "darkseagreen";
 const DEFAULT_MODE = "standard";
 
 const root = document.documentElement;
@@ -16,8 +15,8 @@ const colourPicker = document.getElementById("colour-picker");
 let divs = document.querySelectorAll(".gridElement");
 
 let gridLength = DEFAULT_GRID_LENGTH;
-let standardColour = DEFAULT_COLOUR;
-let currentColour = DEFAULT_COLOUR;
+let standardColour = colourPicker.value;
+let currentColour = standardColour;
 let currentMode = DEFAULT_MODE;
 
 /////////////////
