@@ -9,8 +9,10 @@ const DEFAULT_MODE = "standard";
 const root = document.documentElement;
 const gridSquared = document.querySelector('.grid');
 const sizeText = document.querySelector('.grid-length');
+const sizeSlider = document.querySelector('.slider');
 const clearButton = document.getElementById("clear");
 const modeButtons = document.querySelectorAll('.mode');
+const colourPicker = document.getElementById("colour-picker");
 let divs = document.querySelectorAll(".gridElement");
 
 let gridLength = DEFAULT_GRID_LENGTH;
@@ -23,6 +25,8 @@ let currentMode = DEFAULT_MODE;
 /////////////////
 
 clearButton.onclick = clearGrid;
+sizeSlider.onchange = (e) => changeSize(e.target.value);
+colourPicker.onchange = (e) => changeColour(e.target.value);
 modeButtons.forEach(button => {
     button.addEventListener('click', activateMode);
 });
@@ -50,7 +54,7 @@ function loadGrid() {
         gridDiv.classList.add('gridElement');
         gridSquared.appendChild(gridDiv);
 
-        gridDiv.addEventListener("mouseenter", colour);
+        gridDiv.addEventListener("mouseenter", paint);
     }
 
     // Updates grid elements
@@ -61,7 +65,6 @@ function loadGrid() {
 }
 
 function clearGrid(){
-    gridLength = parseInt(prompt("Define the grid length: "));
     updateCSS();
     loadGrid();
 }
@@ -70,18 +73,23 @@ function updateCSS(){
     root.style.setProperty("--grid-length", gridLength);
 }
 
-function colour(e){
-    if(currentMode === "standard"){
-        currentColour = standardColour;
-    }
-    else if(currentMode === "rainbow"){
-        currentColour = randomColour();
-    }
-    else if(currentMode === "greyscale"){
+function paint(e){
+    if(currentMode === "greyscale"){
         currentColour = greyScale(e.target);
     }
     else {
-        currentColour = "white";
+        // Removes grey class
+        e.target.classList.toggle("grey", false);
+
+        if(currentMode === "standard"){
+            currentColour = standardColour;
+        }
+        else if(currentMode === "rainbow"){
+            currentColour = randomColour();
+        }
+        else {
+            currentColour = "white";
+        }
     }
 
     // Paints div
@@ -129,11 +137,13 @@ function activateMode(e){
     buttonText = e.target.textContent;
     let mode = buttonText.substring(0, buttonText.indexOf(' '));
     currentMode = mode.toLowerCase();
+}
 
-    // Removes grey-scale 
-    if(currentMode !== "greyscale"){
-        divs.forEach(element => {
-            element.classList.toggle("grey", false);
-        });
-    }
+function changeColour(colour){
+    standardColour = colour;
+}
+
+function changeSize(size){
+    gridLength = size;
+    clearGrid();
 }
