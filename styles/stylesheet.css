@@ -16,7 +16,7 @@ Variables
 :root {
   --bg-grey: #FEEFE5;
   --grid-border: #ceccca;
-  --etch-bg: #e94848;
+  --etch-bg: #d34040;
   --font-yellow: #fce26e;
   --grid-size: 500px;
   --selected-colour: black;
@@ -265,13 +265,13 @@ input[type='range']::-moz-range-thumb {
 */
 
 footer {
-  margin-top: 20px;
+  margin-top: 28px;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  color: var(--bg-grey);
+  color: white;
   font-weight: bold;
 }
 
