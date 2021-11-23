@@ -5,6 +5,7 @@ Imports
 */
 
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* 
 #########
@@ -34,7 +35,8 @@ html, body {
 
 body {
   height: 100vh; 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Share', cursive;
+  font-size: 18px;
 }
 
 .content {
@@ -70,10 +72,12 @@ button {
   height: 100px;
   border-radius: 50%;
   text-align: center;
+  transition: transform 0.1s ease-in-out;
 }
 
 button:hover {
   cursor: pointer;
+  transform: scale(1.02);
 }
 
 /* 
@@ -114,11 +118,28 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+}
+
+.size {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 140px; /*Width of the outside container*/
+}
+
+.size p {
+  margin-bottom: 80px;
+  background-color: var(--bg-grey);
+  padding: 7px;
+  width: 65px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .wipe {
-  margin-top: 130px;
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -136,8 +157,8 @@ main {
 }
 
 .selected {
-  background-color: black;
-  color: white;
+  background-color: var(--font-yellow);
+  color: black;
 }
 
 .modes {
@@ -166,23 +187,32 @@ main {
 #colour-picker::-webkit-color-swatch {
   border: none;
   border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bg-grey);
+  transition: box-shadow 0.2s;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 3px;
 }
 
 #colour-picker::-moz-color-swatch {
   border: none;
   border-radius: 50%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bg-grey);
+  transition: box-shadow transform 1s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 3px;
+  /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px; */
 }
 
-.size {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  width: 140px; /*Width of the outside container*/
+#colour-picker::-moz-color-swatch:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
+  transform: scale(1.02);
 }
 
-.size p {
-  margin-right: -140px;
+#colour-picker::-webkit-color-swatch:hover {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
+  transform: scale(1.02);
 }
 
 /* Slider */
@@ -195,13 +225,16 @@ main {
   opacity: 0.85; /* Set transparency (for mouse-over effects on hover) */
   -webkit-transition: .2s; /* 0.2 seconds transition on hover */
   transition: opacity .2s;
+  transition: box-shadow .2s;
   border-radius: 12px;
   transform: rotate(90deg);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 3px;
 }
 
 /* Mouse-over effects */
 .slider:hover {
   opacity: 1; /* Fully shown on mouse-over */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 3px;
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
@@ -211,15 +244,21 @@ input[type='range']::-webkit-slider-thumb {
   background: #525252; 
   border-radius: 50%;
   cursor: pointer; /* Cursor on hover */
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bg-grey);
 }
 
 input[type='range']::-moz-range-thumb {
   border: 0;
   width: 20px; /* Set a specific slider handle width */
   height: 20px; /* Slider handle height */
-  background: #525252; 
+  background: #838383; 
   border-radius: 50%;
   cursor: pointer; /* Cursor on hover */
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--bg-grey);
 }
 
 /** Footer section
@@ -232,6 +271,8 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  color: var(--bg-grey);
+  font-weight: bold;
 }
 
 footer img {

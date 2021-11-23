@@ -25,6 +25,7 @@ let currentMode = DEFAULT_MODE;
 /////////////////
 
 clearButton.onclick = clearGrid;
+sizeSlider.onmousemove = (e) => updateSize(e.target.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
 colourPicker.onchange = (e) => changeColour(e.target.value);
 modeButtons.forEach(button => {
@@ -42,11 +43,8 @@ window.onload = () => {
 }
 
 function loadGrid() {
-    
-    // Removes previous grid
-    while (gridSquared.firstChild) {
-        gridSquared.removeChild(gridSquared.firstChild);
-    }
+    // Sets grid length in css
+    root.style.setProperty("--grid-length", gridLength);
 
     // Creates new grid
     for (let i=0; i<(gridLength ** 2); i++){
@@ -59,18 +57,20 @@ function loadGrid() {
 
     // Updates grid elements
     divs = document.querySelectorAll(".gridElement")
-
-    // Updates length display
-    sizeText.textContent = `${gridLength} × ${gridLength}`;
 }
 
 function clearGrid(){
-    updateCSS();
+    // Removes previous grid
+    while (gridSquared.firstChild) {
+        gridSquared.removeChild(gridSquared.firstChild);
+    }
+    
     loadGrid();
 }
 
 function updateCSS(){
-    root.style.setProperty("--grid-length", gridLength);
+    // Updates length display
+    sizeText.textContent = `${gridLength} × ${gridLength}`;
 }
 
 function paint(e){
@@ -144,6 +144,11 @@ function changeColour(colour){
 
     // If a colour is changed, colour mode is activated
     standardButton.click();
+}
+
+function updateSize(size) {
+    gridLength = size;
+    updateCSS();
 }
 
 function changeSize(size){
