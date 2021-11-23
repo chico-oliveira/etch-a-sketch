@@ -19,14 +19,18 @@
             </header>
             <div class="center-sticky"></div>
             <main>
-                <div class=grid></div>
-                <div class="settings">
+                <div class="left-settings">
                     <div class="size">
                         <p class="grid-length"></p>
                         <input type="range" min="1" max="40" value="16" class="slider" id="myRange">
                     </div>
-                    <button id="clear">Clear</button>
-                    <button class="mode">Eraser</button>
+                    <div class="wipe">
+                        <button id="clear">Clear</button>
+                        <button class="mode">Eraser</button>
+                    </div>
+                </div>
+                <div class=grid></div>
+                <div class="modes">
                     <div class="standard">
                         <input type="color" id="colour-picker" value="#8fbc8f">
                         <button class="mode selected">Standard Mode</button>

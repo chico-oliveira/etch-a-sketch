@@ -12,6 +12,7 @@ const sizeSlider = document.querySelector('.slider');
 const clearButton = document.getElementById("clear");
 const modeButtons = document.querySelectorAll('.mode');
 const colourPicker = document.getElementById("colour-picker");
+const standardButton = document.querySelector(".standard button");
 let divs = document.querySelectorAll(".gridElement");
 
 let gridLength = DEFAULT_GRID_LENGTH;
@@ -87,7 +88,7 @@ function paint(e){
             currentColour = randomColour();
         }
         else {
-            currentColour = "white";
+            currentColour = "var(--bg-grey)";
         }
     }
 
@@ -140,6 +141,9 @@ function activateMode(e){
 
 function changeColour(colour){
     standardColour = colour;
+
+    // If a colour is changed, colour mode is activated
+    standardButton.click();
 }
 
 function changeSize(size){
