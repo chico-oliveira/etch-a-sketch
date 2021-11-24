@@ -284,3 +284,7 @@ footer a {
   display: flex;
   align-items: center;
 }
+
+footer a:hover {
+  filter: brightness(0);
+}
