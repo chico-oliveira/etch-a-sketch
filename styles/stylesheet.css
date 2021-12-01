@@ -48,14 +48,6 @@ body {
   justify-content: center;
 }
 
-header, main, footer {
-  flex-shrink: 0;
-}
-
-.center-sticky {
-  flex: auto;
-}
-
 h1 {
   font-family: 'Dancing Script', cursive;
   color: var(--font-yellow);
